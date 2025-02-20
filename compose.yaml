@@ -1,3 +1,4 @@
 ---
 include:
 - ./jellyfin/compose.yaml
+- ./plex/compose.yaml
