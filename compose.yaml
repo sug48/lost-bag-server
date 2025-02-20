@@ -1,4 +1,3 @@
 ---
 include:
-# - ./healthchecks/compose.yaml
 - ./jellyfin/compose.yaml

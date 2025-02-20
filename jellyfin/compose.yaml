@@ -6,7 +6,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Etc/UTC
+      - TZ=Etc/US
       - JELLYFIN_PublishedServerUrl=http://192.168.0.5 
     volumes:
       - /appdata/jellyfin/library:/config
