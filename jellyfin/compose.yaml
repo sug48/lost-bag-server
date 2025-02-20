@@ -1,16 +1,29 @@
 ---
+# services:
+#   jellyfin:
+#     image: lscr.io/linuxserver/jellyfin:latest
+#     container_name: jellyfin
+#     environment:
+#       - PUID=1000
+#       - PGID=1000
+#       - TZ=Etc/US
+#       - JELLYFIN_PublishedServerUrl=http://192.168.0.5 
+#     volumes:
+#       - /appdata/jellyfin/library:/config
+#       - /media/lost-bag-usb/music:/data/music
+#     ports:
+#       - 8096:8096
+#     restart: unless-stopped
 services:
   jellyfin:
-    image: lscr.io/linuxserver/jellyfin:latest
+    image: jellyfin/jellyfin
     container_name: jellyfin
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/US
-      - JELLYFIN_PublishedServerUrl=http://192.168.0.5 
+    user: 1000:1000
+    network_mode: 'host'
     volumes:
       - /appdata/jellyfin/library:/config
       - /media/lost-bag-usb/music:/data/music
-    ports:
-      - 8096:8096
-    restart: unless-stopped
+    restart: 'unless-stopped'
+    # Optional - alternative address used for autodiscovery
+    environment:
+      - JELLYFIN_PublishedServerUrl=http://lostbag.server
