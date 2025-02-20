@@ -7,7 +7,6 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/US
-      - JELLYFIN_PublishedServerUrl=http://lostbag.server
     volumes:
       - /appdata/jellyfin/library:/config
       - /media/lost-bag-usb/music:/data/music
