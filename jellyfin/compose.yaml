@@ -22,8 +22,10 @@ services:
     network_mode: 'host'
     volumes:
       - /appdata/jellyfin/library:/config
-      - /media/lost-bag-usb/music:/data/music
+      - /appdata/jellying/cache:/cache
+      - type: bind
+        source: media/lost-bag-usb/music
+        target: /music
     restart: 'unless-stopped'
-    # Optional - alternative address used for autodiscovery
     environment:
       - JELLYFIN_PublishedServerUrl=http://lostbag.server
